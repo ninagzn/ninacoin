@@ -1,0 +1,2 @@
+# ninacoin
+NinaCoin
