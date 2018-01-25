@@ -1,18 +1,16 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.11;
 
 contract NinaCoin {
-    mapping (address => uint256) public balanceOf;
+    mapping (address => uint256) public balanceOf;// This creates an array with all balances
+    string public name;
+    string public symbol;
+    uint8 public decimals;
 
-    function NinaCoin(uint256 initialSupply) public {
-        balanceOf[msg.sender] = initialSupply;              
-    }
-
-    function transfer(address _to, uint256 _value) public {
-        require(balanceOf[msg.sender] >= _value);           
-        require(balanceOf[_to] + _value >= balanceOf[_to]); 
-        balanceOf[msg.sender] -= _value;                    
-        balanceOf[_to] += _value;                           
+    /* Initializes contract with initial supply tokens to the creator of the contract */
+    function NinaCoin(uint256 initialSupply) {
+        balanceOf[msg.sender] = initialSupply;             
+        name = "NinaCoin";
+        symbol = "NCN";
+        decimals = 2;
     }
 }
-
-
